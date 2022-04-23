@@ -1,5 +1,8 @@
 package br.com.marcoshssilva.batalhasterramedia.models.nation.enums;
 
+/**
+ * lista uma serie de nações disponíveis para uso
+ */
 public enum CasaDaNacaoEnumTypes {
 
     CIRITH_UNGOL("Cirith Ungol"),
