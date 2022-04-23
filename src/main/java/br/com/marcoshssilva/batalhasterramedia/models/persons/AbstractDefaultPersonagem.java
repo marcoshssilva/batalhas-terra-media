@@ -14,6 +14,7 @@ public abstract class AbstractDefaultPersonagem implements Personagem {
     public AbstractDefaultPersonagem(String nome, Habilidade habilidade, Nacao nacao) {
         this.nome = nome;
         this.habilidade = habilidade;
+        this.nacao = nacao;
         this.modoDoPersonagem = ModoDoPersonagemEnumType.PARADO;
     }
 
