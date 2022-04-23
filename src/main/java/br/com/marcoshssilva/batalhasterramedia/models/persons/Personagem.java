@@ -1,5 +1,6 @@
 package br.com.marcoshssilva.batalhasterramedia.models.persons;
 
+import br.com.marcoshssilva.batalhasterramedia.models.nation.Nacao;
 import br.com.marcoshssilva.batalhasterramedia.models.skills.Habilidade;
 
 public interface Personagem {
@@ -16,4 +17,9 @@ public interface Personagem {
      */
     public Habilidade getHabilidade();
 
+    /**
+     * Retorna uma implementação de uma nação correspondente ao personagem
+     * @return br.com.marcoshssilva.batalhasterramedia.models.nation.Nacao
+     */
+    public Nacao getNacao();
 }
