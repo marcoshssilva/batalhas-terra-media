@@ -37,4 +37,29 @@ public interface Personagem {
      *        Novo modo que o personagem estará
      */
     public void setModoDoPersonagem(ModoDoPersonagemEnumType modo);
+
+    /**
+     * @return Potencia do ataque curto
+     */
+    public Double getDanoAtaqueCurto();
+
+    /**
+     * @return Potencia do ataque longo
+     */
+    public Double getDanoAtaqueLongo();
+
+    /**
+     * @return Valor defensivo que o personagem absorve
+     */
+    public Double getResistencia();
+
+    /**
+     * @return Quantidade de vigor que o personagem possui
+     */
+    public Double getVigor();
+
+    /**
+     * @return Quantidade de vida que o personagem possui
+     */
+    public Double getVida();
 }
