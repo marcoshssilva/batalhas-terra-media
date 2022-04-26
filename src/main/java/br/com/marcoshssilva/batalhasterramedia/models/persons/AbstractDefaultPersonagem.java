@@ -15,7 +15,15 @@ public abstract class AbstractDefaultPersonagem implements Personagem {
         this.nome = nome;
         this.habilidade = habilidade;
         this.nacao = nacao;
+        // when personagem inits without Modo defined
         this.modoDoPersonagem = ModoDoPersonagemEnumType.PARADO;
+    }
+
+    public AbstractDefaultPersonagem(String nome, Habilidade habilidade, Nacao nacao, ModoDoPersonagemEnumType modoDoPersonagem) {
+        this.nome = nome;
+        this.habilidade = habilidade;
+        this.nacao = nacao;
+        this.modoDoPersonagem = modoDoPersonagem;
     }
 
     public AbstractDefaultPersonagem() { }
@@ -25,26 +33,14 @@ public abstract class AbstractDefaultPersonagem implements Personagem {
         return nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
     @Override
     public Habilidade getHabilidade() {
         return habilidade;
     }
 
-    public void setHabilidade(Habilidade habilidade) {
-        this.habilidade = habilidade;
-    }
-
     @Override
     public Nacao getNacao() {
         return nacao;
-    }
-
-    public void setNacao(Nacao nacao) {
-        this.nacao = nacao;
     }
 
     @Override
@@ -55,5 +51,19 @@ public abstract class AbstractDefaultPersonagem implements Personagem {
     @Override
     public void setModoDoPersonagem(ModoDoPersonagemEnumType modo) {
         this.modoDoPersonagem = modo;
+    }
+
+    // protected methods -> only avaible by extends
+
+    protected void setNacao(Nacao nacao) {
+        this.nacao = nacao;
+    }
+
+    protected void setHabilidade(Habilidade habilidade) {
+        this.habilidade = habilidade;
+    }
+
+    protected void setNome(String nome) {
+        this.nome = nome;
     }
 }
