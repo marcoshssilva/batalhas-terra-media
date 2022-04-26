@@ -62,4 +62,24 @@ public interface Personagem {
      * @return Quantidade de vida que o personagem possui
      */
     public Double getVida();
+
+    /**
+     * @return True, caso o personagem possa atacar a longa distancia
+     */
+    public Boolean podeAtacarLonge();
+
+    /**
+     * @return True, caso o personagem possa atacar a curta distancia
+     */
+    public Boolean podeAtacarCurto();
+
+    /**
+     * @return True, caso o personagem possa defender de ataques a curta distancia
+     */
+    public Boolean podeDefenderCurto();
+
+    /**
+     * @return True, caso o personagem possa defender de ataques a longa distancia
+     */
+    public Boolean podeDefenderLongo();
 }
