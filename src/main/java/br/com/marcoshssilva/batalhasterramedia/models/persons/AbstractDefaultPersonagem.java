@@ -10,6 +10,7 @@ public abstract class AbstractDefaultPersonagem implements Personagem {
     private Habilidade habilidade;
     private Nacao nacao;
     private ModoDoPersonagemEnumType modoDoPersonagem;
+    private Double vida;
 
     public AbstractDefaultPersonagem(String nome, Habilidade habilidade, Nacao nacao) {
         this.nome = nome;
@@ -17,6 +18,8 @@ public abstract class AbstractDefaultPersonagem implements Personagem {
         this.nacao = nacao;
         // when personagem inits without Modo defined
         this.modoDoPersonagem = ModoDoPersonagemEnumType.PARADO;
+        // when personagem inits with default life
+        this.vida = 100.00;
     }
 
     public AbstractDefaultPersonagem(String nome, Habilidade habilidade, Nacao nacao, ModoDoPersonagemEnumType modoDoPersonagem) {
@@ -24,6 +27,8 @@ public abstract class AbstractDefaultPersonagem implements Personagem {
         this.habilidade = habilidade;
         this.nacao = nacao;
         this.modoDoPersonagem = modoDoPersonagem;
+        // when personagem inits with default life
+        this.vida = 100.00;
     }
 
     public AbstractDefaultPersonagem() { }
@@ -51,6 +56,11 @@ public abstract class AbstractDefaultPersonagem implements Personagem {
     @Override
     public void setModoDoPersonagem(ModoDoPersonagemEnumType modo) {
         this.modoDoPersonagem = modo;
+    }
+
+    @Override
+    public Double getVida() {
+        return this.vida;
     }
 
     // protected methods -> only avaible by extends
