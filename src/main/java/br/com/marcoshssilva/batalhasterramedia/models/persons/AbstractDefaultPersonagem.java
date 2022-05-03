@@ -6,6 +6,8 @@ import br.com.marcoshssilva.batalhasterramedia.models.skills.Habilidade;
 
 public abstract class AbstractDefaultPersonagem implements Personagem {
 
+    public final Double PERCENTUAL_PADRAO_REDUTOR_CASO_MODO_DEFESA = 0.45;
+
     private String nome;
     private Habilidade habilidade;
     private Nacao nacao;
@@ -63,6 +65,19 @@ public abstract class AbstractDefaultPersonagem implements Personagem {
         return this.vida;
     }
 
+    @Override
+    public void receberDano(final Double potenciaAtaque) {
+        if (podeDefender()
+                && this.getModoDoPersonagem().equals(ModoDoPersonagemEnumType.DEFESA)
+        ) {
+            // reduz a vida de acordo com um coeficiente redutor
+            this.vida -= __calcularDano(potenciaAtaque, getResistencia()) * PERCENTUAL_PADRAO_REDUTOR_CASO_MODO_DEFESA;
+        } else {
+            // reduz a vida de acordo com a diferenca entre potencia e resistencia
+            this.vida -= __calcularDano(potenciaAtaque, getResistencia());
+        }
+    }
+
     // protected methods -> only avaible by extends
 
     protected void setNacao(Nacao nacao) {
@@ -75,5 +90,16 @@ public abstract class AbstractDefaultPersonagem implements Personagem {
 
     protected void setNome(String nome) {
         this.nome = nome;
+    }
+
+    // private methods -> only avaible by this class
+
+    private Double __calcularDano(final Double potenciaAtaque, final Double potenciaDefesa) {
+        Double danoMinimo = 0.00;
+        if ((potenciaAtaque - potenciaDefesa) < danoMinimo) {
+            return danoMinimo;
+        } else {
+            return potenciaAtaque - potenciaDefesa;
+        }
     }
 }

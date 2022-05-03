@@ -77,4 +77,11 @@ public interface Personagem {
      * @return True, caso o personagem possa defender de ataques
      */
     public Boolean podeDefender();
+
+    /**
+     * reduz vida do personagem de acordo com a potencia do ataque recebido.
+     *
+     * @param potenciaAtaque | Valor do ataque recebido.
+     */
+    public void receberDano(final Double potenciaAtaque);
 }
