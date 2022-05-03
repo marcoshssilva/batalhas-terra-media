@@ -64,6 +64,11 @@ public interface Personagem {
     public Double getVida();
 
     /**
+     * @return Velocidade do personagem.
+     */
+    public Double getVelocidade();
+
+    /**
      * @return True, caso o personagem possa atacar a longa distancia
      */
     public Boolean podeAtacarLonge();
@@ -77,6 +82,11 @@ public interface Personagem {
      * @return True, caso o personagem possa defender de ataques
      */
     public Boolean podeDefender();
+
+    /**
+     * @return True, caso o personagem possa se movimentar.
+     */
+    public Boolean podeMover();
 
     /**
      * reduz vida do personagem de acordo com a potencia do ataque recebido.

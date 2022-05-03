@@ -4,6 +4,8 @@ import br.com.marcoshssilva.batalhasterramedia.models.nation.Nacao;
 import br.com.marcoshssilva.batalhasterramedia.models.persons.enums.ModoDoPersonagemEnumType;
 import br.com.marcoshssilva.batalhasterramedia.models.skills.Habilidade;
 
+import java.util.stream.Stream;
+
 public abstract class AbstractDefaultPersonagem implements Personagem {
 
     public final Double PERCENTUAL_PADRAO_REDUTOR_CASO_MODO_DEFESA = 0.45;
@@ -66,11 +68,25 @@ public abstract class AbstractDefaultPersonagem implements Personagem {
     }
 
     @Override
+    public Double getVelocidade() {
+        return 30.00 + (this.getHabilidade().getVelocidade() * 0.7);
+    }
+
+    @Override
+    public Boolean podeMover() {
+        ModoDoPersonagemEnumType[] modosAceitaveis = { ModoDoPersonagemEnumType.MOVIMENTO, ModoDoPersonagemEnumType.PARADO, ModoDoPersonagemEnumType.DEFESA };
+        if (Stream.of(modosAceitaveis).anyMatch(a -> a.equals(getModoDoPersonagem())) ) {
+            return true;
+        }
+        return false;
+    }
+
+    @Override
     public void receberDano(final Double potenciaAtaque) {
         if (podeDefender()
                 && this.getModoDoPersonagem().equals(ModoDoPersonagemEnumType.DEFESA)
         ) {
-            // reduz a vida de acordo com um coeficiente redutor
+            // reduz a vida de acordo com diferena entre potencie e resistencia mediante coeficiente redutor
             this.vida -= __calcularDano(potenciaAtaque, getResistencia()) * PERCENTUAL_PADRAO_REDUTOR_CASO_MODO_DEFESA;
         } else {
             // reduz a vida de acordo com a diferenca entre potencia e resistencia
