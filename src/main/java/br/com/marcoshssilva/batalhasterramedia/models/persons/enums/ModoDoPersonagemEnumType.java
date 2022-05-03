@@ -5,6 +5,5 @@ public enum ModoDoPersonagemEnumType {
     ATAQUE_LONGO,
     MOVIMENTO,
     PARADO,
-    DEFESA_CURTO,
-    DEFESA_LONGO
+    DEFESA
 }
