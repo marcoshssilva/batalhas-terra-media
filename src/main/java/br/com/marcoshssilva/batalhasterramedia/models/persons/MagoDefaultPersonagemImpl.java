@@ -3,22 +3,22 @@ package br.com.marcoshssilva.batalhasterramedia.models.persons;
 public class MagoDefaultPersonagemImpl extends AbstractDefaultPersonagem{
     @Override
     public Double getDanoAtaqueCurto() {
-        return 0.00;
+        return 5.00 + (this.getHabilidade().getForca() * 0.4);
     }
 
     @Override
     public Double getDanoAtaqueLongo() {
-        return 15.00;
+        return 15.00 + (this.getHabilidade().getForca() * 0.85);
     }
 
     @Override
     public Double getResistencia() {
-        return 10.00;
+        return 10.00 + (this.getHabilidade().getArmadura() * 0.4);
     }
 
     @Override
     public Double getVigor() {
-        return 100.00;
+        return 100.00 + (this.getHabilidade().getRecuperacao() * 0.4);
     }
 
     @Override
@@ -32,12 +32,7 @@ public class MagoDefaultPersonagemImpl extends AbstractDefaultPersonagem{
     }
 
     @Override
-    public Boolean podeDefenderCurto() {
+    public Boolean podeDefender() {
         return false;
-    }
-
-    @Override
-    public Boolean podeDefenderLongo() {
-        return true;
     }
 }

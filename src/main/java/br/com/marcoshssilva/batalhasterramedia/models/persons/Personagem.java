@@ -74,12 +74,7 @@ public interface Personagem {
     public Boolean podeAtacarCurto();
 
     /**
-     * @return True, caso o personagem possa defender de ataques a curta distancia
+     * @return True, caso o personagem possa defender de ataques
      */
-    public Boolean podeDefenderCurto();
-
-    /**
-     * @return True, caso o personagem possa defender de ataques a longa distancia
-     */
-    public Boolean podeDefenderLongo();
+    public Boolean podeDefender();
 }
