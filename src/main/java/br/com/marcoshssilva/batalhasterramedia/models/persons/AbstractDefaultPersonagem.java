@@ -94,6 +94,11 @@ public abstract class AbstractDefaultPersonagem implements Personagem {
         }
     }
 
+    @Override
+    public void reporVida() {
+        this.vida = 100.00;
+    }
+
     // protected methods -> only avaible by extends
 
     protected void setNacao(Nacao nacao) {

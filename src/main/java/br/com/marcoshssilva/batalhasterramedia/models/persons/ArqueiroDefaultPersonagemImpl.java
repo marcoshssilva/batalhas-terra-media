@@ -1,6 +1,22 @@
 package br.com.marcoshssilva.batalhasterramedia.models.persons;
 
+import br.com.marcoshssilva.batalhasterramedia.models.nation.Nacao;
+import br.com.marcoshssilva.batalhasterramedia.models.persons.enums.ModoDoPersonagemEnumType;
+import br.com.marcoshssilva.batalhasterramedia.models.skills.Habilidade;
+
 public class ArqueiroDefaultPersonagemImpl extends AbstractDefaultPersonagem{
+
+    public ArqueiroDefaultPersonagemImpl(String nome, Habilidade habilidade, Nacao nacao) {
+        super(nome, habilidade, nacao);
+    }
+
+    public ArqueiroDefaultPersonagemImpl(String nome, Habilidade habilidade, Nacao nacao, ModoDoPersonagemEnumType modoDoPersonagem) {
+        super(nome, habilidade, nacao, modoDoPersonagem);
+    }
+
+    public ArqueiroDefaultPersonagemImpl() {
+    }
+
     @Override
     public Double getDanoAtaqueCurto() {
         return 5.00 + (this.getHabilidade().getForca() * 0.6);

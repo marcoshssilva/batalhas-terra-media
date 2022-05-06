@@ -94,4 +94,9 @@ public interface Personagem {
      * @param potenciaAtaque | Valor do ataque recebido.
      */
     public void receberDano(final Double potenciaAtaque);
+
+    /**
+     * restaura a vida para maximo.
+     */
+    public void reporVida();
 }
