@@ -2,11 +2,9 @@
 
 ## RODAR APLICAÇÃO
 Tenha em sua máquina uma versão Java instalado e Maven configurado em variável de ambiente
-depois execute os comandos:
+depois execute o comando:
 ````
-mvn clean
-mvn install
-java -jar target/BatalhasTerraMedia.jar
+mvn clean install & java -jar target/BatalhasTerraMedia.jar
 ````
 
 ## BUGS
